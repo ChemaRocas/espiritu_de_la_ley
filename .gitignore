@@ -1,0 +1,68 @@
+# --- Secrets (never commit) ---
+# Real keys live in .env; .env.example (names only, no values) is committed.
+.env
+.env.*
+*.env
+!.env.example
+!*.env.example
+credentials.json
+service-account*.json
+*.pem
+*.key
+*.crt
+*.pfx
+id_rsa
+id_ed25519
+.aws/
+.gcloud/
+.kube/config
+
+# --- Run output ---
+# Everything a run produces or downloads lives under output/. It can contain personal or
+# customer data, or is regenerable, so none of it is committed.
+output/
+
+# Belt and braces, in case an export ever lands outside output/. TODO: add a pattern for
+# each kind of file this project produces, e.g.
+#   **/*_results.jsonl
+#   **/*_export.csv
+
+# --- Database dumps ---
+*.sql
+*.dump
+*.sqlite
+*.db
+
+# --- Notebooks (saved outputs can embed data) ---
+# To include one: clear its outputs, then force-add it:
+#   jupyter nbconvert --clear-output --inplace <nb>.ipynb && git add -f <nb>.ipynb
+*.ipynb
+.ipynb_checkpoints/
+
+# --- Personal sandbox: experiments, one-off files, backups ---
+scratch/
+
+# --- Agent files that are personal or temporary ---
+**/.claude/settings.local.json
+.claude/worktrees/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# --- OS / IDE noise ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
